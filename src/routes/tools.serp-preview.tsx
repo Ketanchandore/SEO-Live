@@ -3,7 +3,7 @@ import { toolHead, getToolContent } from "@/lib/tool-meta";
 import { useState } from "react";
 import { Globe, Smartphone, Monitor } from "lucide-react";
 import { Card3D, ToolHeader } from "@/components/Card3D";
-import { ToolPanel } from "./tools";
+import { ToolPanel } from "@/components/ToolPanel";
 
 export const Route = createFileRoute("/tools/serp-preview")({
   loader: () => getToolContent("serp-preview"),

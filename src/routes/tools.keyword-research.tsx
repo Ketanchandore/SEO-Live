@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import { Search, Download, Wand2 } from "lucide-react";
 import { Card3D, ToolHeader } from "@/components/Card3D";
 import { useDebounced } from "@/hooks/use-debounced";
-import { ToolPanel } from "./tools";
+import { ToolPanel } from "@/components/ToolPanel";
 
 export const Route = createFileRoute("/tools/keyword-research")({
   loader: () => getToolContent("keyword-research"),

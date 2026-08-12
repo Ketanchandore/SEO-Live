@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { toolHead, getToolContent } from "@/lib/tool-meta";
 import { useServerFn } from "@tanstack/react-start";
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { ToolPanel } from "./tools";
+import { ToolPanel } from "@/components/ToolPanel";
 import { ToolHeader, Card3D } from "@/components/Card3D";
 import { fetchUrl } from "@/lib/fetch-url.functions";
 import { getMeta, getHeadings, getJsonLd, wordTokens } from "@/lib/html-analyzer";

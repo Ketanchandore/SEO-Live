@@ -1,5 +1,5 @@
 import { createFileRoute, notFound, Link } from "@tanstack/react-router";
-import { ToolPanel } from "./tools";
+import { ToolPanel } from "@/components/ToolPanel";
 import { getNiche } from "@/lib/programmatic-seo";
 import { ArrowRight, Wand2, Search, Target } from "lucide-react";
 import { Card3D } from "@/components/Card3D";

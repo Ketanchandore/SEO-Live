@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { toolHead, getToolContent } from "@/lib/tool-meta";
 import { useMemo, useState } from "react";
-import { ToolPanel } from "./tools";
+import { ToolPanel } from "@/components/ToolPanel";
 import { ToolHeader, Card3D } from "@/components/Card3D";
 import { Copy, Plus, Trash2 } from "lucide-react";
 

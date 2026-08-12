@@ -6,7 +6,7 @@ import {
   Type, BookOpen, FileX2, ImageIcon, Braces, HelpCircle, Package, Newspaper, Code, ScrollText,
 } from "lucide-react";
 import { Card3D } from "@/components/Card3D";
-import { ToolPanel } from "./tools";
+import { ToolPanel } from "@/components/ToolPanel";
 
 import { redirect } from "@tanstack/react-router";
 

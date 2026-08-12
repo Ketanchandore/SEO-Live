@@ -3,7 +3,7 @@ import { toolHead, getToolContent } from "@/lib/tool-meta";
 import { useMemo, useState } from "react";
 import { Copy, Check, Download } from "lucide-react";
 import { Card3D, ToolHeader } from "@/components/Card3D";
-import { ToolPanel } from "./tools";
+import { ToolPanel } from "@/components/ToolPanel";
 
 export const Route = createFileRoute("/tools/robots-txt")({
   loader: () => getToolContent("robots-txt"),

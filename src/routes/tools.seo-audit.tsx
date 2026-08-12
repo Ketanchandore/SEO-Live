@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { toolHead, getToolContent } from "@/lib/tool-meta";
-import { ToolPanel } from "./tools";
+import { ToolPanel } from "@/components/ToolPanel";
 import { ToolHeader } from "@/components/Card3D";
 import { UrlTool, Section, KV } from "@/components/UrlTool";
 import { getMeta, getHeadings, getImages, getJsonLd, getLinks, detectTech, wordTokens } from "@/lib/html-analyzer";
