@@ -1,0 +1,182 @@
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import {
+  Outlet,
+  Link,
+  createRootRouteWithContext,
+  useRouter,
+  HeadContent,
+  Scripts,
+} from "@tanstack/react-router";
+import { useEffect, type ReactNode } from "react";
+
+import appCss from "../styles.css?url";
+import { reportLovableError } from "../lib/lovable-error-reporting";
+import { Layout } from "../components/Layout";
+
+function NotFoundComponent() {
+  return (
+    <div className="flex min-h-screen items-center justify-center bg-background px-4">
+      <div className="max-w-md text-center">
+        <h1 className="text-7xl font-bold text-foreground">404</h1>
+        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
+        <p className="mt-2 text-sm text-muted-foreground">
+          The page you're looking for doesn't exist or has been moved.
+        </p>
+        <div className="mt-6">
+          <Link
+            to="/"
+            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+          >
+            Go home
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
+  console.error(error);
+  const router = useRouter();
+  useEffect(() => {
+    reportLovableError(error, { boundary: "tanstack_root_error_component" });
+  }, [error]);
+
+  return (
+    <div className="flex min-h-screen items-center justify-center bg-background px-4">
+      <div className="max-w-md text-center">
+        <h1 className="text-xl font-semibold tracking-tight text-foreground">
+          This page didn't load
+        </h1>
+        <p className="mt-2 text-sm text-muted-foreground">
+          Something went wrong on our end. You can try refreshing or head back home.
+        </p>
+        <div className="mt-6 flex flex-wrap justify-center gap-2">
+          <button
+            onClick={() => {
+              router.invalidate();
+              reset();
+            }}
+            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+          >
+            Try again
+          </button>
+          <a
+            href="/"
+            className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
+          >
+            Go home
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
+  head: (ctx) => {
+    // Determine current URL for hreflang
+    // @ts-ignore - gracefully handling tanstack router ctx variations
+    const pathname = ctx?.location?.pathname || ctx?.match?.location?.pathname || "/";
+    const currentUrl = `https://seoacademys.com${pathname}`;
+
+    return {
+      meta: [
+        { charSet: "utf-8" },
+        { name: "viewport", content: "width=device-width, initial-scale=1" },
+        { title: "SEOAcademys — Free SEO & GEO Tools used by 2.4M+ marketers" },
+        { name: "description", content: "37 free SEO tools used by 2.4M+ marketers. AI Citation Audit, Schema Generator, Site Audit, Rank Tracker — no signup. Rank #1 in Google & AI Search." },
+        { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1" },
+        { name: "author", content: "SEOAcademys" },
+        { name: "google-site-verification", content: "KrPUA7V1X_REbe_1oojsMMfhXeqUn3tEmmOZPaMTZCU" },
+        { property: "og:type", content: "website" },
+        { property: "og:site_name", content: "SEOAcademys" },
+        { name: "twitter:card", content: "summary_large_image" },
+        { name: "theme-color", content: "#22c55e" },
+      ],
+      links: [
+        { rel: "stylesheet", href: appCss },
+        { rel: "icon", type: "image/png", href: "/favicon.png" },
+        { rel: "apple-touch-icon", href: "/logo.webp" },
+        { rel: "preconnect", href: "https://fonts.googleapis.com" },
+        { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+        { rel: "preconnect", href: "https://www.googletagmanager.com" },
+        { rel: "dns-prefetch", href: "https://www.google-analytics.com" },
+        { rel: "alternate", hrefLang: "en-US", href: currentUrl },
+        { rel: "alternate", hrefLang: "x-default", href: currentUrl },
+        {
+          rel: "stylesheet",
+          href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap",
+        },
+      ],
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "SEOAcademys",
+            "url": "https://seoacademys.com/",
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": "https://seoacademys.com/search?q={search_term_string}",
+              "query-input": "required name=search_term_string"
+            }
+          })
+        },
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "SEOAcademys",
+            "url": "https://seoacademys.com",
+            "logo": "https://seoacademys.com/logo.webp",
+            "sameAs": [
+              "https://twitter.com/seoacademys",
+              "https://www.linkedin.com/company/seoacademys"
+            ]
+          })
+        },
+        {
+          children:
+            "window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}" +
+            "var c=null;try{c=localStorage.getItem('sa_consent_v1')}catch(e){}" +
+            "var g=c==='granted'?'granted':'denied';" +
+            "gtag('consent','default',{analytics_storage:g,ad_storage:g,ad_user_data:g,ad_personalization:g});" +
+            "gtag('js',new Date());gtag('config','G-WEMSSMC2E8',{anonymize_ip:true});" +
+            "addEventListener('load',function(){var s=document.createElement('script');s.async=true;" +
+            "s.src='https://www.googletagmanager.com/gtag/js?id=G-WEMSSMC2E8';document.head.appendChild(s);});",
+        },
+      ],
+    };
+  },
+  shellComponent: RootShell,
+  component: RootComponent,
+  notFoundComponent: NotFoundComponent,
+  errorComponent: ErrorComponent,
+});
+
+function RootShell({ children }: { children: ReactNode }) {
+  return (
+    <html lang="en">
+      <head>
+        <HeadContent />
+      </head>
+      <body>
+        {children}
+        <Scripts />
+      </body>
+    </html>
+  );
+}
+
+function RootComponent() {
+  const { queryClient } = Route.useRouteContext();
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <Layout />
+    </QueryClientProvider>
+  );
+}
