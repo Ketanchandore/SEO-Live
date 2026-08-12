@@ -1,4 +1,5 @@
-
+import { CORE_CONTENT } from "./tool-content-core";
+import { GEO_CONTENT } from "./tool-content-geo";
 
 export type ToolMeta = {
   slug: string;
@@ -490,11 +491,7 @@ export async function getToolContent(slug: string): Promise<ToolMeta | undefined
   if (!base) return undefined;
 
   try {
-    const [coreMod, geoMod] = await Promise.all([
-      import("./tool-content-core"),
-      import("./tool-content-geo")
-    ]);
-    const patch = { ...coreMod.CORE_CONTENT[slug], ...geoMod.GEO_CONTENT[slug] };
+    const patch = { ...CORE_CONTENT[slug], ...GEO_CONTENT[slug] };
     return { ...base, ...patch } as ToolMeta;
   } catch (e) {
     console.error("Failed to load tool content", e);

@@ -23,6 +23,8 @@ export function ToolContent() {
   const tn = meta.name;
   const competitor = meta.competitor ?? "Semrush";
   const issues = meta.commonIssues ?? defaultIssues(tn);
+  const features = meta.features ?? [];
+  const faqs = meta.faqs ?? [];
 
   return (
     <section className="mt-12 max-w-4xl mx-auto space-y-12 pb-16">
@@ -49,12 +51,12 @@ export function ToolContent() {
       <Block id="what-it-checks" title={`What Does ${tn} Check?`}>
         <p className="text-muted-foreground mb-5">
           {tn} is a free SEO tool from SEOAcademys that performs real-time
-          analysis on any live URL. It evaluates {meta.features.length}+ signals
+          analysis on any live URL. It evaluates {features.length}+ signals
           using the same methodology trusted by 2.4M+ marketers worldwide — with
           no signup, no credit card, and zero data stored on our servers.
         </p>
         <div className="grid sm:grid-cols-2 gap-3">
-          {meta.features.map((f, i) => (
+          {features.map((f, i) => (
             <FeatureCard key={i} title={f.split(/[:—-]/)[0].trim()} body={f} />
           ))}
         </div>
@@ -97,7 +99,7 @@ export function ToolContent() {
       {/* H2 Full list of checks */}
       <Block id="full-list" title={`What ${tn} Checks — Full List`}>
         <div className="rounded-xl border border-border bg-surface-2 divide-y divide-border">
-          {meta.features.map((f, i) => (
+          {features.map((f, i) => (
             <div key={i} className="flex items-start gap-3 p-3.5 text-sm">
               <Check className="size-4 text-success shrink-0 mt-0.5" />
               <span>{f}</span>
@@ -159,7 +161,7 @@ export function ToolContent() {
       {/* H2 FAQ */}
       <Block id="faq" title={`Frequently Asked Questions About ${tn}`}>
         <div className="space-y-3">
-          {meta.faqs.map((f, i) => (
+          {faqs.map((f, i) => (
             <details key={i} className="group rounded-lg border border-border bg-surface p-4 open:bg-surface-2 transition">
               <summary className="cursor-pointer flex items-center gap-2 font-semibold text-foreground">
                 <HelpCircle className="size-4 text-primary shrink-0" />
