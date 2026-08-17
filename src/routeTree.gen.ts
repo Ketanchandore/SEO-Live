@@ -24,6 +24,7 @@ import { Route as MethodologyRouteImport } from './routes/methodology'
 import { Route as MonetizationRouteImport } from './routes/monetization'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as SeoStackRouteImport } from './routes/seo-stack'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SourcesRouteImport } from './routes/sources'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as ToolsRouteImport } from './routes/tools'
@@ -160,6 +161,11 @@ const PrivacyRoute = PrivacyRouteImport.update({
 const SeoStackRoute = SeoStackRouteImport.update({
   id: '/seo-stack',
   path: '/seo-stack',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SourcesRoute = SourcesRouteImport.update({
@@ -497,6 +503,7 @@ export interface FileRoutesByFullPath {
   '/monetization': typeof MonetizationRoute
   '/privacy': typeof PrivacyRoute
   '/seo-stack': typeof SeoStackRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sources': typeof SourcesRoute
   '/terms': typeof TermsRoute
   '/tools': typeof ToolsRouteWithChildren
@@ -576,6 +583,7 @@ export interface FileRoutesByTo {
   '/monetization': typeof MonetizationRoute
   '/privacy': typeof PrivacyRoute
   '/seo-stack': typeof SeoStackRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sources': typeof SourcesRoute
   '/terms': typeof TermsRoute
   '/why-free': typeof WhyFreeRoute
@@ -656,6 +664,7 @@ export interface FileRoutesById {
   '/monetization': typeof MonetizationRoute
   '/privacy': typeof PrivacyRoute
   '/seo-stack': typeof SeoStackRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sources': typeof SourcesRoute
   '/terms': typeof TermsRoute
   '/tools': typeof ToolsRouteWithChildren
@@ -737,6 +746,7 @@ export interface FileRouteTypes {
     | '/monetization'
     | '/privacy'
     | '/seo-stack'
+    | '/sitemap.xml'
     | '/sources'
     | '/terms'
     | '/tools'
@@ -816,6 +826,7 @@ export interface FileRouteTypes {
     | '/monetization'
     | '/privacy'
     | '/seo-stack'
+    | '/sitemap.xml'
     | '/sources'
     | '/terms'
     | '/why-free'
@@ -895,6 +906,7 @@ export interface FileRouteTypes {
     | '/monetization'
     | '/privacy'
     | '/seo-stack'
+    | '/sitemap.xml'
     | '/sources'
     | '/terms'
     | '/tools'
@@ -976,6 +988,7 @@ export interface RootRouteChildren {
   MonetizationRoute: typeof MonetizationRoute
   PrivacyRoute: typeof PrivacyRoute
   SeoStackRoute: typeof SeoStackRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SourcesRoute: typeof SourcesRoute
   TermsRoute: typeof TermsRoute
   ToolsRoute: typeof ToolsRouteWithChildren
@@ -1096,6 +1109,13 @@ declare module '@tanstack/react-router' {
       path: '/seo-stack'
       fullPath: '/seo-stack'
       preLoaderRoute: typeof SeoStackRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sources': {
@@ -1683,6 +1703,7 @@ const rootRouteChildren: RootRouteChildren = {
   MonetizationRoute: MonetizationRoute,
   PrivacyRoute: PrivacyRoute,
   SeoStackRoute: SeoStackRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   SourcesRoute: SourcesRoute,
   TermsRoute: TermsRoute,
   ToolsRoute: ToolsRouteWithChildren,

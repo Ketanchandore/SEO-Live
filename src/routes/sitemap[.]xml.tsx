@@ -1,4 +1,4 @@
-import { createAPIFileRoute } from "@tanstack/react-start/api";
+import { createFileRoute } from "@tanstack/react-router";
 import { TOOL_META } from "@/lib/tool-meta";
 import { BLOG_POSTS } from "@/lib/blog-posts";
 import { MODULES, MOCK_CHAPTERS } from "@/lib/learning-curriculum";
@@ -13,8 +13,8 @@ interface SitemapEntry {
   priority?: string;
 }
 
-export const APIRoute = createAPIFileRoute("/sitemap.xml")({
-  GET: async () => {
+export const Route = createFileRoute("/sitemap.xml")({
+  loader: async () => {
 
         const staticPaths = [
           "/",
@@ -80,11 +80,12 @@ export const APIRoute = createAPIFileRoute("/sitemap.xml")({
 
         const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>`;
 
-    return new Response(xml, {
+    throw new Response(xml, {
       headers: {
         "Content-Type": "application/xml",
         "Cache-Control": "public, max-age=3600",
       },
     });
   },
+  component: () => null,
 });
