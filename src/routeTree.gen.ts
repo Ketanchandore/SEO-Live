@@ -16,22 +16,28 @@ import { Route as ApiDocsRouteImport } from './routes/api-docs'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as ChangelogRouteImport } from './routes/changelog'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CorrectionsRouteImport } from './routes/corrections'
+import { Route as EditorialPolicyRouteImport } from './routes/editorial-policy'
+import { Route as ExperimentsRouteImport } from './routes/experiments'
 import { Route as HowItWorksRouteImport } from './routes/how-it-works'
-import { Route as LearnRouteImport } from './routes/learn'
-import { Route as LearningRouteImport } from './routes/learning'
+import { Route as MethodologyRouteImport } from './routes/methodology'
+import { Route as MonetizationRouteImport } from './routes/monetization'
 import { Route as PrivacyRouteImport } from './routes/privacy'
-import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as SeoStackRouteImport } from './routes/seo-stack'
+import { Route as SourcesRouteImport } from './routes/sources'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as ToolsRouteImport } from './routes/tools'
+import { Route as WhyFreeRouteImport } from './routes/why-free'
 import { Route as AuthenticatedAssistantRouteImport } from './routes/_authenticated/assistant'
 import { Route as AuthenticatedAuditRouteImport } from './routes/_authenticated/audit'
 import { Route as AuthenticatedConnectionsRouteImport } from './routes/_authenticated/connections'
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
+import { Route as AboutKetanChandoreRouteImport } from './routes/about.ketan-chandore'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as GlossaryIndexRouteImport } from './routes/glossary.index'
 import { Route as GlossaryTermRouteImport } from './routes/glossary.$term'
-import { Route as LearnSlugRouteImport } from './routes/learn.$slug'
+import { Route as LearnIndexRouteImport } from './routes/learn.index'
 import { Route as ToolsIndexRouteImport } from './routes/tools.index'
 import { Route as ToolsAiCitationAuditRouteImport } from './routes/tools.ai-citation-audit'
 import { Route as ToolsAiGeoHubRouteImport } from './routes/tools.ai-geo-hub'
@@ -54,6 +60,7 @@ import { Route as ToolsKeywordResearchRouteImport } from './routes/tools.keyword
 import { Route as ToolsLinkAnalyzerRouteImport } from './routes/tools.link-analyzer'
 import { Route as ToolsMetaGeneratorRouteImport } from './routes/tools.meta-generator'
 import { Route as ToolsMetaTagCheckerRouteImport } from './routes/tools.meta-tag-checker'
+import { Route as ToolsMethodologyRouteImport } from './routes/tools.methodology'
 import { Route as ToolsMobileCheckerRouteImport } from './routes/tools.mobile-checker'
 import { Route as ToolsOgCheckerRouteImport } from './routes/tools.og-checker'
 import { Route as ToolsPageSizeRouteImport } from './routes/tools.page-size'
@@ -76,6 +83,8 @@ import { Route as ToolsTwitterCardCheckerRouteImport } from './routes/tools.twit
 import { Route as ToolsWordCounterRouteImport } from './routes/tools.word-counter'
 import { Route as VsCompetitorRouteImport } from './routes/vs.$competitor'
 import { Route as BlogAuthorTeamRouteImport } from './routes/blog.author.team'
+import { Route as LearnModuleSlugIndexRouteImport } from './routes/learn.$moduleSlug.index'
+import { Route as LearnModuleSlugChapterSlugRouteImport } from './routes/learn.$moduleSlug.$chapterSlug'
 import { Route as ToolsKeywordResearchForNicheRouteImport } from './routes/tools.keyword-research_.for.$niche'
 import { Route as ToolsSeoAuditForPlatformRouteImport } from './routes/tools.seo-audit_.for.$platform'
 
@@ -113,19 +122,34 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CorrectionsRoute = CorrectionsRouteImport.update({
+  id: '/corrections',
+  path: '/corrections',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EditorialPolicyRoute = EditorialPolicyRouteImport.update({
+  id: '/editorial-policy',
+  path: '/editorial-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExperimentsRoute = ExperimentsRouteImport.update({
+  id: '/experiments',
+  path: '/experiments',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const HowItWorksRoute = HowItWorksRouteImport.update({
   id: '/how-it-works',
   path: '/how-it-works',
   getParentRoute: () => rootRouteImport,
 } as any)
-const LearnRoute = LearnRouteImport.update({
-  id: '/learn',
-  path: '/learn',
+const MethodologyRoute = MethodologyRouteImport.update({
+  id: '/methodology',
+  path: '/methodology',
   getParentRoute: () => rootRouteImport,
 } as any)
-const LearningRoute = LearningRouteImport.update({
-  id: '/learning',
-  path: '/learning',
+const MonetizationRoute = MonetizationRouteImport.update({
+  id: '/monetization',
+  path: '/monetization',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrivacyRoute = PrivacyRouteImport.update({
@@ -133,9 +157,14 @@ const PrivacyRoute = PrivacyRouteImport.update({
   path: '/privacy',
   getParentRoute: () => rootRouteImport,
 } as any)
-const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
-  id: '/sitemap.xml',
-  path: '/sitemap.xml',
+const SeoStackRoute = SeoStackRouteImport.update({
+  id: '/seo-stack',
+  path: '/seo-stack',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SourcesRoute = SourcesRouteImport.update({
+  id: '/sources',
+  path: '/sources',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TermsRoute = TermsRouteImport.update({
@@ -146,6 +175,11 @@ const TermsRoute = TermsRouteImport.update({
 const ToolsRoute = ToolsRouteImport.update({
   id: '/tools',
   path: '/tools',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WhyFreeRoute = WhyFreeRouteImport.update({
+  id: '/why-free',
+  path: '/why-free',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AuthenticatedAssistantRoute = AuthenticatedAssistantRouteImport.update({
@@ -169,6 +203,11 @@ const AuthenticatedDashboardRoute = AuthenticatedDashboardRouteImport.update({
   path: '/dashboard',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AboutKetanChandoreRoute = AboutKetanChandoreRouteImport.update({
+  id: '/ketan-chandore',
+  path: '/ketan-chandore',
+  getParentRoute: () => AboutRoute,
+} as any)
 const BlogIndexRoute = BlogIndexRouteImport.update({
   id: '/blog/',
   path: '/blog/',
@@ -189,10 +228,10 @@ const GlossaryTermRoute = GlossaryTermRouteImport.update({
   path: '/glossary/$term',
   getParentRoute: () => rootRouteImport,
 } as any)
-const LearnSlugRoute = LearnSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => LearnRoute,
+const LearnIndexRoute = LearnIndexRouteImport.update({
+  id: '/learn/',
+  path: '/learn/',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const ToolsIndexRoute = ToolsIndexRouteImport.update({
   id: '/',
@@ -302,6 +341,11 @@ const ToolsMetaGeneratorRoute = ToolsMetaGeneratorRouteImport.update({
 const ToolsMetaTagCheckerRoute = ToolsMetaTagCheckerRouteImport.update({
   id: '/meta-tag-checker',
   path: '/meta-tag-checker',
+  getParentRoute: () => ToolsRoute,
+} as any)
+const ToolsMethodologyRoute = ToolsMethodologyRouteImport.update({
+  id: '/methodology',
+  path: '/methodology',
   getParentRoute: () => ToolsRoute,
 } as any)
 const ToolsMobileCheckerRoute = ToolsMobileCheckerRouteImport.update({
@@ -414,6 +458,17 @@ const BlogAuthorTeamRoute = BlogAuthorTeamRouteImport.update({
   path: '/blog/author/team',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LearnModuleSlugIndexRoute = LearnModuleSlugIndexRouteImport.update({
+  id: '/learn/$moduleSlug/',
+  path: '/learn/$moduleSlug/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LearnModuleSlugChapterSlugRoute =
+  LearnModuleSlugChapterSlugRouteImport.update({
+    id: '/learn/$moduleSlug/$chapterSlug',
+    path: '/learn/$moduleSlug/$chapterSlug',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ToolsKeywordResearchForNicheRoute =
   ToolsKeywordResearchForNicheRouteImport.update({
     id: '/keyword-research_/for/$niche',
@@ -429,25 +484,30 @@ const ToolsSeoAuditForPlatformRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
+  '/about': typeof AboutRouteWithChildren
   '/api-docs': typeof ApiDocsRoute
   '/auth': typeof AuthRoute
   '/changelog': typeof ChangelogRoute
   '/contact': typeof ContactRoute
+  '/corrections': typeof CorrectionsRoute
+  '/editorial-policy': typeof EditorialPolicyRoute
+  '/experiments': typeof ExperimentsRoute
   '/how-it-works': typeof HowItWorksRoute
-  '/learn': typeof LearnRouteWithChildren
-  '/learning': typeof LearningRoute
+  '/methodology': typeof MethodologyRoute
+  '/monetization': typeof MonetizationRoute
   '/privacy': typeof PrivacyRoute
-  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/seo-stack': typeof SeoStackRoute
+  '/sources': typeof SourcesRoute
   '/terms': typeof TermsRoute
   '/tools': typeof ToolsRouteWithChildren
+  '/why-free': typeof WhyFreeRoute
   '/assistant': typeof AuthenticatedAssistantRoute
   '/audit': typeof AuthenticatedAuditRoute
   '/connections': typeof AuthenticatedConnectionsRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
+  '/about/ketan-chandore': typeof AboutKetanChandoreRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/glossary/$term': typeof GlossaryTermRoute
-  '/learn/$slug': typeof LearnSlugRoute
   '/tools/ai-citation-audit': typeof ToolsAiCitationAuditRoute
   '/tools/ai-geo-hub': typeof ToolsAiGeoHubRoute
   '/tools/article-schema': typeof ToolsArticleSchemaRoute
@@ -469,6 +529,7 @@ export interface FileRoutesByFullPath {
   '/tools/link-analyzer': typeof ToolsLinkAnalyzerRoute
   '/tools/meta-generator': typeof ToolsMetaGeneratorRoute
   '/tools/meta-tag-checker': typeof ToolsMetaTagCheckerRoute
+  '/tools/methodology': typeof ToolsMethodologyRoute
   '/tools/mobile-checker': typeof ToolsMobileCheckerRoute
   '/tools/og-checker': typeof ToolsOgCheckerRoute
   '/tools/page-size': typeof ToolsPageSizeRoute
@@ -492,31 +553,39 @@ export interface FileRoutesByFullPath {
   '/vs/$competitor': typeof VsCompetitorRoute
   '/blog/': typeof BlogIndexRoute
   '/glossary/': typeof GlossaryIndexRoute
+  '/learn/': typeof LearnIndexRoute
   '/tools/': typeof ToolsIndexRoute
   '/blog/author/team': typeof BlogAuthorTeamRoute
+  '/learn/$moduleSlug/$chapterSlug': typeof LearnModuleSlugChapterSlugRoute
+  '/learn/$moduleSlug/': typeof LearnModuleSlugIndexRoute
   '/tools/keyword-research/for/$niche': typeof ToolsKeywordResearchForNicheRoute
   '/tools/seo-audit/for/$platform': typeof ToolsSeoAuditForPlatformRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
+  '/about': typeof AboutRouteWithChildren
   '/api-docs': typeof ApiDocsRoute
   '/auth': typeof AuthRoute
   '/changelog': typeof ChangelogRoute
   '/contact': typeof ContactRoute
+  '/corrections': typeof CorrectionsRoute
+  '/editorial-policy': typeof EditorialPolicyRoute
+  '/experiments': typeof ExperimentsRoute
   '/how-it-works': typeof HowItWorksRoute
-  '/learn': typeof LearnRouteWithChildren
-  '/learning': typeof LearningRoute
+  '/methodology': typeof MethodologyRoute
+  '/monetization': typeof MonetizationRoute
   '/privacy': typeof PrivacyRoute
-  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/seo-stack': typeof SeoStackRoute
+  '/sources': typeof SourcesRoute
   '/terms': typeof TermsRoute
+  '/why-free': typeof WhyFreeRoute
   '/assistant': typeof AuthenticatedAssistantRoute
   '/audit': typeof AuthenticatedAuditRoute
   '/connections': typeof AuthenticatedConnectionsRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
+  '/about/ketan-chandore': typeof AboutKetanChandoreRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/glossary/$term': typeof GlossaryTermRoute
-  '/learn/$slug': typeof LearnSlugRoute
   '/tools/ai-citation-audit': typeof ToolsAiCitationAuditRoute
   '/tools/ai-geo-hub': typeof ToolsAiGeoHubRoute
   '/tools/article-schema': typeof ToolsArticleSchemaRoute
@@ -538,6 +607,7 @@ export interface FileRoutesByTo {
   '/tools/link-analyzer': typeof ToolsLinkAnalyzerRoute
   '/tools/meta-generator': typeof ToolsMetaGeneratorRoute
   '/tools/meta-tag-checker': typeof ToolsMetaTagCheckerRoute
+  '/tools/methodology': typeof ToolsMethodologyRoute
   '/tools/mobile-checker': typeof ToolsMobileCheckerRoute
   '/tools/og-checker': typeof ToolsOgCheckerRoute
   '/tools/page-size': typeof ToolsPageSizeRoute
@@ -561,8 +631,11 @@ export interface FileRoutesByTo {
   '/vs/$competitor': typeof VsCompetitorRoute
   '/blog': typeof BlogIndexRoute
   '/glossary': typeof GlossaryIndexRoute
+  '/learn': typeof LearnIndexRoute
   '/tools': typeof ToolsIndexRoute
   '/blog/author/team': typeof BlogAuthorTeamRoute
+  '/learn/$moduleSlug/$chapterSlug': typeof LearnModuleSlugChapterSlugRoute
+  '/learn/$moduleSlug': typeof LearnModuleSlugIndexRoute
   '/tools/keyword-research/for/$niche': typeof ToolsKeywordResearchForNicheRoute
   '/tools/seo-audit/for/$platform': typeof ToolsSeoAuditForPlatformRoute
 }
@@ -570,25 +643,30 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
-  '/about': typeof AboutRoute
+  '/about': typeof AboutRouteWithChildren
   '/api-docs': typeof ApiDocsRoute
   '/auth': typeof AuthRoute
   '/changelog': typeof ChangelogRoute
   '/contact': typeof ContactRoute
+  '/corrections': typeof CorrectionsRoute
+  '/editorial-policy': typeof EditorialPolicyRoute
+  '/experiments': typeof ExperimentsRoute
   '/how-it-works': typeof HowItWorksRoute
-  '/learn': typeof LearnRouteWithChildren
-  '/learning': typeof LearningRoute
+  '/methodology': typeof MethodologyRoute
+  '/monetization': typeof MonetizationRoute
   '/privacy': typeof PrivacyRoute
-  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/seo-stack': typeof SeoStackRoute
+  '/sources': typeof SourcesRoute
   '/terms': typeof TermsRoute
   '/tools': typeof ToolsRouteWithChildren
+  '/why-free': typeof WhyFreeRoute
   '/_authenticated/assistant': typeof AuthenticatedAssistantRoute
   '/_authenticated/audit': typeof AuthenticatedAuditRoute
   '/_authenticated/connections': typeof AuthenticatedConnectionsRoute
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
+  '/about/ketan-chandore': typeof AboutKetanChandoreRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/glossary/$term': typeof GlossaryTermRoute
-  '/learn/$slug': typeof LearnSlugRoute
   '/tools/ai-citation-audit': typeof ToolsAiCitationAuditRoute
   '/tools/ai-geo-hub': typeof ToolsAiGeoHubRoute
   '/tools/article-schema': typeof ToolsArticleSchemaRoute
@@ -610,6 +688,7 @@ export interface FileRoutesById {
   '/tools/link-analyzer': typeof ToolsLinkAnalyzerRoute
   '/tools/meta-generator': typeof ToolsMetaGeneratorRoute
   '/tools/meta-tag-checker': typeof ToolsMetaTagCheckerRoute
+  '/tools/methodology': typeof ToolsMethodologyRoute
   '/tools/mobile-checker': typeof ToolsMobileCheckerRoute
   '/tools/og-checker': typeof ToolsOgCheckerRoute
   '/tools/page-size': typeof ToolsPageSizeRoute
@@ -633,8 +712,11 @@ export interface FileRoutesById {
   '/vs/$competitor': typeof VsCompetitorRoute
   '/blog/': typeof BlogIndexRoute
   '/glossary/': typeof GlossaryIndexRoute
+  '/learn/': typeof LearnIndexRoute
   '/tools/': typeof ToolsIndexRoute
   '/blog/author/team': typeof BlogAuthorTeamRoute
+  '/learn/$moduleSlug/$chapterSlug': typeof LearnModuleSlugChapterSlugRoute
+  '/learn/$moduleSlug/': typeof LearnModuleSlugIndexRoute
   '/tools/keyword-research_/for/$niche': typeof ToolsKeywordResearchForNicheRoute
   '/tools/seo-audit_/for/$platform': typeof ToolsSeoAuditForPlatformRoute
 }
@@ -647,20 +729,25 @@ export interface FileRouteTypes {
     | '/auth'
     | '/changelog'
     | '/contact'
+    | '/corrections'
+    | '/editorial-policy'
+    | '/experiments'
     | '/how-it-works'
-    | '/learn'
-    | '/learning'
+    | '/methodology'
+    | '/monetization'
     | '/privacy'
-    | '/sitemap.xml'
+    | '/seo-stack'
+    | '/sources'
     | '/terms'
     | '/tools'
+    | '/why-free'
     | '/assistant'
     | '/audit'
     | '/connections'
     | '/dashboard'
+    | '/about/ketan-chandore'
     | '/blog/$slug'
     | '/glossary/$term'
-    | '/learn/$slug'
     | '/tools/ai-citation-audit'
     | '/tools/ai-geo-hub'
     | '/tools/article-schema'
@@ -682,6 +769,7 @@ export interface FileRouteTypes {
     | '/tools/link-analyzer'
     | '/tools/meta-generator'
     | '/tools/meta-tag-checker'
+    | '/tools/methodology'
     | '/tools/mobile-checker'
     | '/tools/og-checker'
     | '/tools/page-size'
@@ -705,8 +793,11 @@ export interface FileRouteTypes {
     | '/vs/$competitor'
     | '/blog/'
     | '/glossary/'
+    | '/learn/'
     | '/tools/'
     | '/blog/author/team'
+    | '/learn/$moduleSlug/$chapterSlug'
+    | '/learn/$moduleSlug/'
     | '/tools/keyword-research/for/$niche'
     | '/tools/seo-audit/for/$platform'
   fileRoutesByTo: FileRoutesByTo
@@ -717,19 +808,24 @@ export interface FileRouteTypes {
     | '/auth'
     | '/changelog'
     | '/contact'
+    | '/corrections'
+    | '/editorial-policy'
+    | '/experiments'
     | '/how-it-works'
-    | '/learn'
-    | '/learning'
+    | '/methodology'
+    | '/monetization'
     | '/privacy'
-    | '/sitemap.xml'
+    | '/seo-stack'
+    | '/sources'
     | '/terms'
+    | '/why-free'
     | '/assistant'
     | '/audit'
     | '/connections'
     | '/dashboard'
+    | '/about/ketan-chandore'
     | '/blog/$slug'
     | '/glossary/$term'
-    | '/learn/$slug'
     | '/tools/ai-citation-audit'
     | '/tools/ai-geo-hub'
     | '/tools/article-schema'
@@ -751,6 +847,7 @@ export interface FileRouteTypes {
     | '/tools/link-analyzer'
     | '/tools/meta-generator'
     | '/tools/meta-tag-checker'
+    | '/tools/methodology'
     | '/tools/mobile-checker'
     | '/tools/og-checker'
     | '/tools/page-size'
@@ -774,8 +871,11 @@ export interface FileRouteTypes {
     | '/vs/$competitor'
     | '/blog'
     | '/glossary'
+    | '/learn'
     | '/tools'
     | '/blog/author/team'
+    | '/learn/$moduleSlug/$chapterSlug'
+    | '/learn/$moduleSlug'
     | '/tools/keyword-research/for/$niche'
     | '/tools/seo-audit/for/$platform'
   id:
@@ -787,20 +887,25 @@ export interface FileRouteTypes {
     | '/auth'
     | '/changelog'
     | '/contact'
+    | '/corrections'
+    | '/editorial-policy'
+    | '/experiments'
     | '/how-it-works'
-    | '/learn'
-    | '/learning'
+    | '/methodology'
+    | '/monetization'
     | '/privacy'
-    | '/sitemap.xml'
+    | '/seo-stack'
+    | '/sources'
     | '/terms'
     | '/tools'
+    | '/why-free'
     | '/_authenticated/assistant'
     | '/_authenticated/audit'
     | '/_authenticated/connections'
     | '/_authenticated/dashboard'
+    | '/about/ketan-chandore'
     | '/blog/$slug'
     | '/glossary/$term'
-    | '/learn/$slug'
     | '/tools/ai-citation-audit'
     | '/tools/ai-geo-hub'
     | '/tools/article-schema'
@@ -822,6 +927,7 @@ export interface FileRouteTypes {
     | '/tools/link-analyzer'
     | '/tools/meta-generator'
     | '/tools/meta-tag-checker'
+    | '/tools/methodology'
     | '/tools/mobile-checker'
     | '/tools/og-checker'
     | '/tools/page-size'
@@ -845,8 +951,11 @@ export interface FileRouteTypes {
     | '/vs/$competitor'
     | '/blog/'
     | '/glossary/'
+    | '/learn/'
     | '/tools/'
     | '/blog/author/team'
+    | '/learn/$moduleSlug/$chapterSlug'
+    | '/learn/$moduleSlug/'
     | '/tools/keyword-research_/for/$niche'
     | '/tools/seo-audit_/for/$platform'
   fileRoutesById: FileRoutesById
@@ -854,24 +963,32 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
-  AboutRoute: typeof AboutRoute
+  AboutRoute: typeof AboutRouteWithChildren
   ApiDocsRoute: typeof ApiDocsRoute
   AuthRoute: typeof AuthRoute
   ChangelogRoute: typeof ChangelogRoute
   ContactRoute: typeof ContactRoute
+  CorrectionsRoute: typeof CorrectionsRoute
+  EditorialPolicyRoute: typeof EditorialPolicyRoute
+  ExperimentsRoute: typeof ExperimentsRoute
   HowItWorksRoute: typeof HowItWorksRoute
-  LearnRoute: typeof LearnRouteWithChildren
-  LearningRoute: typeof LearningRoute
+  MethodologyRoute: typeof MethodologyRoute
+  MonetizationRoute: typeof MonetizationRoute
   PrivacyRoute: typeof PrivacyRoute
-  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  SeoStackRoute: typeof SeoStackRoute
+  SourcesRoute: typeof SourcesRoute
   TermsRoute: typeof TermsRoute
   ToolsRoute: typeof ToolsRouteWithChildren
+  WhyFreeRoute: typeof WhyFreeRoute
   BlogSlugRoute: typeof BlogSlugRoute
   GlossaryTermRoute: typeof GlossaryTermRoute
   VsCompetitorRoute: typeof VsCompetitorRoute
   BlogIndexRoute: typeof BlogIndexRoute
   GlossaryIndexRoute: typeof GlossaryIndexRoute
+  LearnIndexRoute: typeof LearnIndexRoute
   BlogAuthorTeamRoute: typeof BlogAuthorTeamRoute
+  LearnModuleSlugChapterSlugRoute: typeof LearnModuleSlugChapterSlugRoute
+  LearnModuleSlugIndexRoute: typeof LearnModuleSlugIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -925,6 +1042,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/corrections': {
+      id: '/corrections'
+      path: '/corrections'
+      fullPath: '/corrections'
+      preLoaderRoute: typeof CorrectionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/editorial-policy': {
+      id: '/editorial-policy'
+      path: '/editorial-policy'
+      fullPath: '/editorial-policy'
+      preLoaderRoute: typeof EditorialPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/experiments': {
+      id: '/experiments'
+      path: '/experiments'
+      fullPath: '/experiments'
+      preLoaderRoute: typeof ExperimentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/how-it-works': {
       id: '/how-it-works'
       path: '/how-it-works'
@@ -932,18 +1070,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HowItWorksRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/learn': {
-      id: '/learn'
-      path: '/learn'
-      fullPath: '/learn'
-      preLoaderRoute: typeof LearnRouteImport
+    '/methodology': {
+      id: '/methodology'
+      path: '/methodology'
+      fullPath: '/methodology'
+      preLoaderRoute: typeof MethodologyRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/learning': {
-      id: '/learning'
-      path: '/learning'
-      fullPath: '/learning'
-      preLoaderRoute: typeof LearningRouteImport
+    '/monetization': {
+      id: '/monetization'
+      path: '/monetization'
+      fullPath: '/monetization'
+      preLoaderRoute: typeof MonetizationRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/privacy': {
@@ -953,11 +1091,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PrivacyRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/sitemap.xml': {
-      id: '/sitemap.xml'
-      path: '/sitemap.xml'
-      fullPath: '/sitemap.xml'
-      preLoaderRoute: typeof SitemapDotxmlRouteImport
+    '/seo-stack': {
+      id: '/seo-stack'
+      path: '/seo-stack'
+      fullPath: '/seo-stack'
+      preLoaderRoute: typeof SeoStackRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sources': {
+      id: '/sources'
+      path: '/sources'
+      fullPath: '/sources'
+      preLoaderRoute: typeof SourcesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/terms': {
@@ -972,6 +1117,13 @@ declare module '@tanstack/react-router' {
       path: '/tools'
       fullPath: '/tools'
       preLoaderRoute: typeof ToolsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/why-free': {
+      id: '/why-free'
+      path: '/why-free'
+      fullPath: '/why-free'
+      preLoaderRoute: typeof WhyFreeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_authenticated/assistant': {
@@ -1002,6 +1154,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedDashboardRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/about/ketan-chandore': {
+      id: '/about/ketan-chandore'
+      path: '/ketan-chandore'
+      fullPath: '/about/ketan-chandore'
+      preLoaderRoute: typeof AboutKetanChandoreRouteImport
+      parentRoute: typeof AboutRoute
+    }
     '/blog/': {
       id: '/blog/'
       path: '/blog'
@@ -1030,12 +1189,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GlossaryTermRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/learn/$slug': {
-      id: '/learn/$slug'
-      path: '/$slug'
-      fullPath: '/learn/$slug'
-      preLoaderRoute: typeof LearnSlugRouteImport
-      parentRoute: typeof LearnRoute
+    '/learn/': {
+      id: '/learn/'
+      path: '/learn'
+      fullPath: '/learn/'
+      preLoaderRoute: typeof LearnIndexRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/tools/': {
       id: '/tools/'
@@ -1189,6 +1348,13 @@ declare module '@tanstack/react-router' {
       path: '/meta-tag-checker'
       fullPath: '/tools/meta-tag-checker'
       preLoaderRoute: typeof ToolsMetaTagCheckerRouteImport
+      parentRoute: typeof ToolsRoute
+    }
+    '/tools/methodology': {
+      id: '/tools/methodology'
+      path: '/methodology'
+      fullPath: '/tools/methodology'
+      preLoaderRoute: typeof ToolsMethodologyRouteImport
       parentRoute: typeof ToolsRoute
     }
     '/tools/mobile-checker': {
@@ -1345,6 +1511,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogAuthorTeamRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/learn/$moduleSlug/': {
+      id: '/learn/$moduleSlug/'
+      path: '/learn/$moduleSlug'
+      fullPath: '/learn/$moduleSlug/'
+      preLoaderRoute: typeof LearnModuleSlugIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/learn/$moduleSlug/$chapterSlug': {
+      id: '/learn/$moduleSlug/$chapterSlug'
+      path: '/learn/$moduleSlug/$chapterSlug'
+      fullPath: '/learn/$moduleSlug/$chapterSlug'
+      preLoaderRoute: typeof LearnModuleSlugChapterSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/tools/keyword-research_/for/$niche': {
       id: '/tools/keyword-research_/for/$niche'
       path: '/keyword-research/for/$niche'
@@ -1379,15 +1559,15 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
 const AuthenticatedRouteRouteWithChildren =
   AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
 
-interface LearnRouteChildren {
-  LearnSlugRoute: typeof LearnSlugRoute
+interface AboutRouteChildren {
+  AboutKetanChandoreRoute: typeof AboutKetanChandoreRoute
 }
 
-const LearnRouteChildren: LearnRouteChildren = {
-  LearnSlugRoute: LearnSlugRoute,
+const AboutRouteChildren: AboutRouteChildren = {
+  AboutKetanChandoreRoute: AboutKetanChandoreRoute,
 }
 
-const LearnRouteWithChildren = LearnRoute._addFileChildren(LearnRouteChildren)
+const AboutRouteWithChildren = AboutRoute._addFileChildren(AboutRouteChildren)
 
 interface ToolsRouteChildren {
   ToolsAiCitationAuditRoute: typeof ToolsAiCitationAuditRoute
@@ -1411,6 +1591,7 @@ interface ToolsRouteChildren {
   ToolsLinkAnalyzerRoute: typeof ToolsLinkAnalyzerRoute
   ToolsMetaGeneratorRoute: typeof ToolsMetaGeneratorRoute
   ToolsMetaTagCheckerRoute: typeof ToolsMetaTagCheckerRoute
+  ToolsMethodologyRoute: typeof ToolsMethodologyRoute
   ToolsMobileCheckerRoute: typeof ToolsMobileCheckerRoute
   ToolsOgCheckerRoute: typeof ToolsOgCheckerRoute
   ToolsPageSizeRoute: typeof ToolsPageSizeRoute
@@ -1458,6 +1639,7 @@ const ToolsRouteChildren: ToolsRouteChildren = {
   ToolsLinkAnalyzerRoute: ToolsLinkAnalyzerRoute,
   ToolsMetaGeneratorRoute: ToolsMetaGeneratorRoute,
   ToolsMetaTagCheckerRoute: ToolsMetaTagCheckerRoute,
+  ToolsMethodologyRoute: ToolsMethodologyRoute,
   ToolsMobileCheckerRoute: ToolsMobileCheckerRoute,
   ToolsOgCheckerRoute: ToolsOgCheckerRoute,
   ToolsPageSizeRoute: ToolsPageSizeRoute,
@@ -1488,24 +1670,32 @@ const ToolsRouteWithChildren = ToolsRoute._addFileChildren(ToolsRouteChildren)
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
-  AboutRoute: AboutRoute,
+  AboutRoute: AboutRouteWithChildren,
   ApiDocsRoute: ApiDocsRoute,
   AuthRoute: AuthRoute,
   ChangelogRoute: ChangelogRoute,
   ContactRoute: ContactRoute,
+  CorrectionsRoute: CorrectionsRoute,
+  EditorialPolicyRoute: EditorialPolicyRoute,
+  ExperimentsRoute: ExperimentsRoute,
   HowItWorksRoute: HowItWorksRoute,
-  LearnRoute: LearnRouteWithChildren,
-  LearningRoute: LearningRoute,
+  MethodologyRoute: MethodologyRoute,
+  MonetizationRoute: MonetizationRoute,
   PrivacyRoute: PrivacyRoute,
-  SitemapDotxmlRoute: SitemapDotxmlRoute,
+  SeoStackRoute: SeoStackRoute,
+  SourcesRoute: SourcesRoute,
   TermsRoute: TermsRoute,
   ToolsRoute: ToolsRouteWithChildren,
+  WhyFreeRoute: WhyFreeRoute,
   BlogSlugRoute: BlogSlugRoute,
   GlossaryTermRoute: GlossaryTermRoute,
   VsCompetitorRoute: VsCompetitorRoute,
   BlogIndexRoute: BlogIndexRoute,
   GlossaryIndexRoute: GlossaryIndexRoute,
+  LearnIndexRoute: LearnIndexRoute,
   BlogAuthorTeamRoute: BlogAuthorTeamRoute,
+  LearnModuleSlugChapterSlugRoute: LearnModuleSlugChapterSlugRoute,
+  LearnModuleSlugIndexRoute: LearnModuleSlugIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

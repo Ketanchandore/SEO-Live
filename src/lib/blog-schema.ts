@@ -38,17 +38,18 @@ export function blogPostJsonLd(post: BlogPostMeta): object[] {
       "@type": "Article",
       headline: post.title,
       description: post.description,
+      url,
       datePublished: post.datePublished,
       dateModified: post.dateModified ?? post.datePublished,
+      ...(image ? { image: { "@type": "ImageObject", url: image } } : {}),
       author: {
         "@type": "Person",
-        name: post.author ?? "SEOAcademys Editorial Team",
-        url: `${SITE_URL}/blog/author/team`,
-        jobTitle: "SEO Editors & Analysts",
-        worksFor: {
-          "@type": "Organization",
-          name: "SEOAcademys"
-        }
+        name: "Ketan Chandore",
+        url: `${SITE_URL}/about/ketan-chandore`,
+        sameAs: [
+          "https://www.linkedin.com/in/ketan-chandore-51a533254",
+          "https://x.com/pinepl_techai"
+        ]
       },
       publisher: {
         "@type": "Organization",
@@ -56,16 +57,10 @@ export function blogPostJsonLd(post: BlogPostMeta): object[] {
         url: SITE_URL,
         logo: {
           "@type": "ImageObject",
-          url: `${SITE_URL}/favicon.ico`,
+          url: `${SITE_URL}/images/logo.png`,
         },
       },
-      mainEntityOfPage: { "@type": "WebPage", "@id": url },
-      url,
-      ...(image ? { image } : {}),
-      ...(post.category ? { articleSection: post.category } : {}),
-      ...(post.readingTime ? { timeRequired: `PT${post.readingTime}M` } : {}),
-      inLanguage: "en",
-      isPartOf: { "@type": "Blog", name: "SEOAcademys Blog", url: `${SITE_URL}/blog` },
+      mainEntityOfPage: { "@type": "WebPage", "@id": url }
     },
     {
       "@context": "https://schema.org",

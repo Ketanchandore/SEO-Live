@@ -128,13 +128,37 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           type: "application/ld+json",
           children: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "Organization",
+            "@type": "Corporation",
             "name": "SEOAcademys",
+            "legalName": "SEOAcademys Inc.",
             "url": "https://seoacademys.com",
             "logo": "https://seoacademys.com/logo.webp",
+            "description": "Enterprise-grade SEO and GEO toolkit used by over 2.4 million digital marketers worldwide.",
+            "foundingDate": "2024-01-01",
+            "founders": [
+              {
+                "@type": "Person",
+                "name": "SEOAcademys Team"
+              }
+            ],
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "123 Innovation Drive",
+              "addressLocality": "San Francisco",
+              "addressRegion": "CA",
+              "postalCode": "94105",
+              "addressCountry": "US"
+            },
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "contactType": "customer support",
+              "email": "ketanchandore114@gmail.com",
+              "availableLanguage": ["English", "Hindi"]
+            },
             "sameAs": [
-              "https://twitter.com/seoacademys",
-              "https://www.linkedin.com/company/seoacademys"
+              "https://x.com/pinepl_techai",
+              "https://www.linkedin.com/in/ketan-chandore-51a533254",
+              "https://youtube.com/@pinepl_techai"
             ]
           })
         },

@@ -4,6 +4,7 @@ import { getBlogPost, BLOG_POSTS } from "@/lib/blog-posts";
 import { blogPostHead } from "@/lib/blog-schema";
 import { Card3D } from "@/components/Card3D";
 import { ArrowRight, CalendarDays, Clock, User } from "lucide-react";
+import { ArticleTrustHeader, AuthorBoxFull } from "@/components/TrustElements";
 
 export const Route = createFileRoute("/blog/$slug")({
   head: ({ params }) => {
@@ -70,6 +71,13 @@ function BlogPostPage() {
             </p>
           ))}
         </div>
+
+        <ArticleTrustHeader 
+          datePublished={post.datePublished} 
+          dateModified={post.dateModified || post.datePublished} 
+          sources="SEOAcademys Internal Diagnostics + Official Search Central Docs" 
+          evidenceLevel="Confirmed" 
+        />
 
         <div className="mt-8 rounded-2xl border border-primary/20 bg-primary/5 p-5">
           <h2 className="font-display text-sm uppercase tracking-widest text-primary mb-3">Free tools used in this guide</h2>
@@ -149,6 +157,11 @@ function BlogPostPage() {
             </div>
           </section>
         )}
+
+        <AuthorBoxFull 
+          datePublished={post.datePublished} 
+          dateModified={post.dateModified || post.datePublished} 
+        />
 
         <section className="mt-12">
           <h2 className="font-display text-2xl font-bold tracking-tight">Continue reading</h2>

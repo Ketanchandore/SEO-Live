@@ -34,6 +34,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "**Direct Answer:** Rank tracking is the process of monitoring a website's position in search engine results pages (SERPs) for specific keywords. In 2026, you can track Google rankings for free using Google Search Console and localized unpersonalized search queries, avoiding expensive monthly software subscriptions.",
       "Rank tracking is the practice of recording where a specific URL appears in search results for a specific keyword, location and device, then measuring how that position moves over time. It is the single clearest feedback loop in SEO: you change something, and the position tells you whether search engines agreed.",
       "There are more than 53,000 monthly searches for rank tracking software, and nearly every result costs $100–$500 per month. That price is not required. This guide shows how to track rankings for free, how to read position data correctly, and why in 2026 position alone no longer describes your visibility.",
+      "**Learn more:** Track your rankings and understand Google Analytics deeply in [Module 14: SEO Analytics Guide](/learn/seo-analytics).",
     ],
     sections: [
       {
@@ -125,6 +126,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "**Direct Answer:** Generative Engine Optimization (GEO) is the strategy of formatting and structuring website content so that it is selected and cited by AI engines like ChatGPT, Gemini, and Perplexity. It relies on factual density, E-E-A-T signals, and direct answers.",
       "GEO stands for Generative Engine Optimization. It is the practice of optimising a website so that it is selected, cited and recommended by AI-powered search systems — ChatGPT Search, Google Gemini and AI Overviews, Perplexity, Microsoft Copilot, Claude and DeepSeek.",
       "As of 2026, roughly 60% of informational queries are answered directly by an AI system without a click to any website. GEO is the strategy for staying visible inside that answer instead of below it.",
+      "**Learn GEO in depth:** [Module 10: GEO Complete Guide](/learn/geo-guide)",
     ],
     sections: [
       {
@@ -223,6 +225,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "**Direct Answer:** An SEO site audit is a comprehensive technical and content review of a website to identify crawlability issues, indexation blocks, and ranking barriers. A complete 2026 audit covers Core Web Vitals, Schema markup, Mobile-friendliness, and AI readiness.",
       "An SEO site audit is a structured review of everything that can prevent a page from being crawled, indexed, understood or ranked. A good audit ends with a prioritised fix list, not a score.",
       "This checklist covers 47 checks in seven categories, ordered by impact. Work top to bottom: a crawlability problem makes every content improvement below it irrelevant.",
+      "**Learn more:** Master technical checks with [Module 15: SEO Audit Framework](/learn/seo-audit) and [Module 2: Technical SEO](/learn/technical-seo).",
     ],
     sections: [
       {
@@ -337,6 +340,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "**Direct Answer:** Search Engine Optimization (SEO) is the technical and content practice of improving a website's visibility in organic search results and AI engine citations. It involves technical health, content relevance, and domain authority.",
       "SEO, or search engine optimisation, is the practice of improving a website so that it appears for the queries its audience searches. It covers three areas: technical health, content relevance and authority.",
       "In 2026 the definition has widened. Being found now means appearing in Google's organic results and being cited by AI answer engines. Both are earned with the same foundations.",
+      "**Start learning from scratch:** [Module 1: SEO Fundamentals](/learn/seo-fundamentals)",
     ],
     sections: [
       {
@@ -408,6 +412,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "**Direct Answer:** Core Web Vitals are a set of specific factors that Google considers important in a webpage's overall user experience. The 2026 metrics are Largest Contentful Paint (LCP), Cumulative Layout Shift (CLS), and Interaction to Next Paint (INP).",
       "Core Web Vitals are Google's three field metrics for user experience: Largest Contentful Paint, Cumulative Layout Shift and Interaction to Next Paint. They are measured from real Chrome users, not from a lab test.",
       "They are a ranking signal, but a tie-breaker rather than a primary one. Their bigger effect is commercial: slow pages lose users before content quality ever matters.",
+      "**Learn more:** Dive deep into site speed in [Module 2: Technical SEO](/learn/technical-seo).",
     ],
     sections: [
       {
@@ -485,6 +490,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "**Direct Answer:** Schema markup (JSON-LD) is a standardized vocabulary used to structure data on a webpage, helping search engines and AI models understand the content context. It is essential for earning rich snippets and AI citations in 2026.",
       "Schema markup is structured data added to a page that tells search engines exactly what the content is, using the shared vocabulary at schema.org. Google's recommended format is JSON-LD placed in the head of the document.",
       "Schema does not directly raise rankings. It raises comprehension — and comprehension is what earns rich results in Google and citations in AI answers.",
+      "**Learn more:** Master JSON-LD implementation in [Module 12: Structured Data & Schema](/learn/structured-data).",
     ],
     sections: [
       {
@@ -560,6 +566,7 @@ export const BLOG_POSTS: BlogPost[] = [
     intro: [
       "Keyword research is the process of finding the queries your audience types, estimating how hard each is to rank for, and choosing the ones you can realistically win.",
       "The mistake that wastes most SEO effort is chasing volume. A keyword you cannot rank for is worth zero regardless of how many people search it.",
+      "**Learn more:** [Module 3: Keyword Research Complete Guide](/learn/keyword-research)",
     ],
     sections: [
       {
@@ -629,6 +636,7 @@ export const BLOG_POSTS: BlogPost[] = [
     intro: [
       "llms.txt is a plain markdown file placed at the root of a domain that tells AI language models what the site is about, which pages are authoritative, and how the content should be interpreted.",
       "robots.txt controls access. llms.txt controls understanding. Only around 9% of audited sites have one, which makes it one of the cheapest GEO advantages still available.",
+      "**Learn more:** [Module 10: GEO Guide](/learn/geo-guide)",
     ],
     sections: [
       {

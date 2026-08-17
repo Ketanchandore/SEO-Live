@@ -278,51 +278,356 @@ export function ComparisonTable() {
   );
 }
 
-/* ───────────────────────── TESTIMONIAL GRID ───────────────────────── */
-const testimonials = [
-  { name: "Priya Sharma", role: "Head of SEO · D2C Brand · 12M MAU", quote: "We went from 0 to 47 ChatGPT citations in 30 days using nothing but SEOAcademys' free tools.", avatar: "P", color: "oklch(0.72 0.17 162)", stars: 5 },
-  { name: "Marcus Chen", role: "Growth Lead · SaaS · YC W23", quote: "The schema generator alone saved us $4,000 in dev time. JSON-LD is finally not scary.", avatar: "M", color: "oklch(0.7 0.2 240)", stars: 5 },
-  { name: "Elena Rossi", role: "Content Director · Fintech", quote: "Sentence-level scoring opened our eyes. We rewrote 200 pages and Google AIO cites us weekly now.", avatar: "E", color: "oklch(0.65 0.2 300)", stars: 5 },
-  { name: "David Okafor", role: "Founder · Indie SaaS", quote: "I shipped llms.txt in 5 minutes. Perplexity started citing my docs the next week. Magic.", avatar: "D", color: "oklch(0.78 0.17 70)", stars: 5 },
-  { name: "Sofia Garcia", role: "SEO Consultant · Agency", quote: "My clients pay me $5k/mo and I use the GEO Tracker as the entire intelligence layer. World-class.", avatar: "S", color: "oklch(0.68 0.16 162)", stars: 5 },
-  { name: "Hiroshi Tanaka", role: "Tech Lead · E-commerce", quote: "Migrated our entire product catalog to Schema 2.0 in 2 days. Gemini citations up 340%.", avatar: "H", color: "oklch(0.72 0.18 30)", stars: 5 },
-];
-
 export function TestimonialsGrid() {
   return (
-    <section className="py-16">
-      <div className="text-center mb-12">
-        <div className="text-xs uppercase tracking-[0.2em] text-primary font-mono mb-2">LOVED BY MARKETERS</div>
-        <h2 className="font-display text-3xl sm:text-4xl font-bold">Trusted by <span className="grad-text">2.4M+ professionals</span></h2>
-        <p className="mt-3 text-muted-foreground">From indie founders to Fortune 500 SEO teams.</p>
-      </div>
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        {testimonials.map((t, i) => (
-          <motion.div
-            key={t.name}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: (i % 3) * 0.1 }}
-            whileHover={{ y: -4 }}
-            className="card-3d p-6 relative overflow-hidden group"
-          >
-            <Quote className="absolute top-4 right-4 size-8 text-primary/10 group-hover:text-primary/20 transition" />
-            <div className="flex gap-0.5 mb-3">
-              {[...Array(t.stars)].map((_, k) => <Sparkles key={k} className="size-3.5 fill-warning text-warning" />)}
-            </div>
-            <p className="text-sm leading-relaxed text-foreground/90 mb-5">"{t.quote}"</p>
-            <div className="flex items-center gap-3">
-              <div className="size-10 rounded-full flex items-center justify-center font-display font-bold text-white shadow-md" style={{ background: t.color }}>
-                {t.avatar}
-              </div>
+    <section style={{
+      padding: "5rem 1.5rem",
+      background: "#F8FAFF",
+      fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+    }}>
+      <div style={{ maxWidth: "1040px", margin: "0 auto" }}>
+        {/* EYEBROW LABEL */}
+        <p style={{
+          fontSize: "11px",
+          letterSpacing: "0.12em",
+          textTransform: "uppercase",
+          color: "#64748B",
+          textAlign: "center",
+          margin: "0 0 0.75rem",
+          fontWeight: 500
+        }}>About SEOAcademys</p>
+
+        {/* MAIN HEADLINE */}
+        <h2 style={{
+          fontSize: "2rem",
+          fontWeight: 600,
+          color: "#0F172A",
+          textAlign: "center",
+          lineHeight: 1.25,
+          margin: "0 auto 0.75rem",
+          maxWidth: "600px"
+        }}>Built by one real person.<br/>No agencies. No fake personas.</h2>
+
+        {/* SUB TEXT */}
+        <p style={{
+          fontSize: "16px",
+          color: "#64748B",
+          textAlign: "center",
+          margin: "0 auto 3rem",
+          maxWidth: "500px",
+          lineHeight: 1.65
+        }}>Transparent about who runs this, why tools are free, and how content is created — so you can decide whether to trust it.</p>
+
+        {/* STATS ROW: 4 honest numbers */}
+        <div style={{
+          display: "grid",
+          border: "1px solid #E2E8F0",
+          borderRadius: "14px",
+          overflow: "hidden",
+          marginBottom: "2.5rem",
+          background: "white"
+        }} className="grid-cols-2 md:grid-cols-4">
+          {/* Stat 1 */}
+          <div style={{ padding: "1.5rem 1rem", textAlign: "center" }} className="border-b md:border-b-0 border-r border-[#E2E8F0]">
+            <span style={{ display: "block", fontSize: "26px", fontWeight: 700, color: "#0F172A", lineHeight: 1, marginBottom: "6px" }}>1</span>
+            <span style={{ display: "block", fontSize: "13px", color: "#64748B" }}>Real founder</span>
+          </div>
+          {/* Stat 2 */}
+          <div style={{ padding: "1.5rem 1rem", textAlign: "center" }} className="border-b md:border-b-0 md:border-r border-[#E2E8F0]">
+            <span style={{ display: "block", fontSize: "26px", fontWeight: 700, color: "#0F172A", lineHeight: 1, marginBottom: "6px" }}>0</span>
+            <span style={{ display: "block", fontSize: "13px", color: "#64748B" }}>Fake author profiles</span>
+          </div>
+          {/* Stat 3 */}
+          <div style={{ padding: "1.5rem 1rem", textAlign: "center" }} className="border-r border-[#E2E8F0]">
+            <span style={{ display: "block", fontSize: "26px", fontWeight: 700, color: "#2563EB", lineHeight: 1, marginBottom: "6px" }}>Free</span>
+            <span style={{ display: "block", fontSize: "13px", color: "#64748B" }}>Core tools, always</span>
+          </div>
+          {/* Stat 4 */}
+          <div style={{ padding: "1.5rem 1rem", textAlign: "center" }}>
+            <span style={{ display: "block", fontSize: "26px", fontWeight: 700, color: "#0F172A", lineHeight: 1, marginBottom: "6px" }}>0</span>
+            <span style={{ display: "block", fontSize: "13px", color: "#64748B" }}>Ranking guarantees</span>
+          </div>
+        </div>
+
+        {/* MAIN 2-COL GRID */}
+        <div style={{ display: "grid", gap: "1.25rem" }} className="grid-cols-1 md:grid-cols-2">
+          {/* LEFT: FOUNDER CARD */}
+          <div style={{
+            background: "white",
+            border: "1px solid #E2E8F0",
+            borderRadius: "14px",
+            padding: "1.75rem"
+          }}>
+            {/* Avatar + Name row */}
+            <div style={{ display: "flex", alignItems: "center", gap: "14px", marginBottom: "1rem" }}>
+              <div style={{
+                width: "60px",
+                height: "60px",
+                borderRadius: "50%",
+                background: "#EFF6FF",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontSize: "20px",
+                fontWeight: 600,
+                color: "#2563EB",
+                flexShrink: 0,
+                border: "2px solid #BFDBFE"
+              }}>KC</div>
               <div>
-                <div className="font-semibold text-sm">{t.name}</div>
-                <div className="text-xs text-muted-foreground">{t.role}</div>
+                <p style={{ fontSize: "17px", fontWeight: 600, color: "#0F172A", margin: "0 0 3px" }}>Ketan Chandore</p>
+                <p style={{ fontSize: "13px", color: "#64748B", margin: 0 }}>Founder & Creator — SEOAcademys.com</p>
               </div>
             </div>
-          </motion.div>
-        ))}
+
+            {/* Location badge */}
+            <div style={{ marginBottom: "1rem" }}>
+              <span style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "5px",
+                fontSize: "12px",
+                padding: "4px 10px",
+                borderRadius: "6px",
+                background: "#F0FDF4",
+                color: "#16A34A",
+                fontWeight: 500,
+                border: "1px solid #BBF7D0"
+              }}>
+                📍 Khargone, Madhya Pradesh · B.Tech CS Student
+              </span>
+            </div>
+
+            {/* Bio */}
+            <p style={{
+              fontSize: "14px",
+              color: "#475569",
+              lineHeight: 1.7,
+              margin: "0 0 1.25rem"
+            }}>I built SEOAcademys because Ahrefs costs ₹8,000/month — and I couldn't afford it. So I built the tools myself. Everything here is built, written, and maintained by me — one person from a small city in central India.</p>
+
+            {/* Projects list */}
+            <div style={{ marginBottom: "1.25rem", display: "flex", flexDirection: "column", gap: "8px" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "13px", color: "#475569" }}>
+                <span style={{ color: "#2563EB", fontSize: "14px" }}>✓</span>
+                SEOAcademys.com — SEO + GEO + AEO platform
+              </div>
+              <div style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "13px", color: "#475569" }}>
+                <span style={{ color: "#2563EB", fontSize: "14px" }}>✓</span>
+                ColourPine.com — color tools site
+              </div>
+              <div style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "13px", color: "#475569" }}>
+                <span style={{ color: "#2563EB", fontSize: "14px" }}>✓</span>
+                ProtoolsKit — utility & converter tools
+              </div>
+            </div>
+
+            {/* Social links */}
+            <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
+              <a href="https://www.linkedin.com/in/ketan-chandore-51a533254" target="_blank" rel="noopener noreferrer" style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "5px",
+                fontSize: "13px",
+                color: "#2563EB",
+                border: "1px solid #BFDBFE",
+                borderRadius: "6px",
+                padding: "6px 12px",
+                textDecoration: "none",
+                background: "white"
+              }}>
+                🔗 LinkedIn
+              </a>
+              <a href="https://x.com/pinepl_techai" target="_blank" rel="noopener noreferrer" style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "5px",
+                fontSize: "13px",
+                color: "#2563EB",
+                border: "1px solid #BFDBFE",
+                borderRadius: "6px",
+                padding: "6px 12px",
+                textDecoration: "none",
+                background: "white"
+              }}>
+                𝕏 Twitter / X
+              </a>
+              <Link to="/about/ketan-chandore" style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "5px",
+                fontSize: "13px",
+                color: "#2563EB",
+                border: "1px solid #BFDBFE",
+                borderRadius: "6px",
+                padding: "6px 12px",
+                textDecoration: "none",
+                background: "white"
+              }}>
+                👤 Full profile →
+              </Link>
+            </div>
+          </div>
+
+          {/* RIGHT: 4 TRUST PILLARS */}
+          <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+            {/* Pillar 1 */}
+            <div style={{
+              background: "white",
+              border: "1px solid #E2E8F0",
+              borderRadius: "14px",
+              padding: "1.1rem 1.25rem",
+              display: "flex",
+              gap: "14px",
+              alignItems: "flex-start"
+            }}>
+              <div style={{
+                width: "38px",
+                height: "38px",
+                borderRadius: "8px",
+                background: "#EFF6FF",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontSize: "18px",
+                flexShrink: 0
+              }}>🛡️</div>
+              <div>
+                <p style={{ fontSize: "14px", fontWeight: 600, color: "#0F172A", margin: "0 0 4px" }}>No ranking promises</p>
+                <p style={{ fontSize: "13px", color: "#64748B", margin: 0, lineHeight: 1.55 }}>Nobody outside Google knows the full algorithm. We teach what's documented, tested, and honest.</p>
+              </div>
+            </div>
+
+            {/* Pillar 2 */}
+            <div style={{
+              background: "white",
+              border: "1px solid #E2E8F0",
+              borderRadius: "14px",
+              padding: "1.1rem 1.25rem",
+              display: "flex",
+              gap: "14px",
+              alignItems: "flex-start"
+            }}>
+              <div style={{
+                width: "38px",
+                height: "38px",
+                borderRadius: "8px",
+                background: "#F0FDF4",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontSize: "18px",
+                flexShrink: 0
+              }}>🛠️</div>
+              <div>
+                <p style={{ fontSize: "14px", fontWeight: 600, color: "#0F172A", margin: "0 0 4px" }}>Tools are free — for real</p>
+                <p style={{ fontSize: "13px", color: "#64748B", margin: 0, lineHeight: 1.55 }}>Not a limited trial. Not a lead funnel. Core tools stay free because that's the whole point of this platform.</p>
+              </div>
+            </div>
+
+            {/* Pillar 3 */}
+            <div style={{
+              background: "white",
+              border: "1px solid #E2E8F0",
+              borderRadius: "14px",
+              padding: "1.1rem 1.25rem",
+              display: "flex",
+              gap: "14px",
+              alignItems: "flex-start"
+            }}>
+              <div style={{
+                width: "38px",
+                height: "38px",
+                borderRadius: "8px",
+                background: "#FFFBEB",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontSize: "18px",
+                flexShrink: 0
+              }}>🔬</div>
+              <div>
+                <p style={{ fontSize: "14px", fontWeight: 600, color: "#0F172A", margin: "0 0 4px" }}>Evidence over hype</p>
+                <p style={{ fontSize: "13px", color: "#64748B", margin: 0, lineHeight: 1.55 }}>Confirmed facts and hypotheses are clearly labeled. Real experiments. Official documentation. No "secret tricks."</p>
+              </div>
+            </div>
+
+            {/* Pillar 4 */}
+            <div style={{
+              background: "white",
+              border: "1px solid #E2E8F0",
+              borderRadius: "14px",
+              padding: "1.1rem 1.25rem",
+              display: "flex",
+              gap: "14px",
+              alignItems: "flex-start"
+            }}>
+              <div style={{
+                width: "38px",
+                height: "38px",
+                borderRadius: "8px",
+                background: "#FEF2F2",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontSize: "18px",
+                flexShrink: 0
+              }}>✏️</div>
+              <div>
+                <p style={{ fontSize: "14px", fontWeight: 600, color: "#0F172A", margin: "0 0 4px" }}>Corrections welcome</p>
+                <p style={{ fontSize: "13px", color: "#64748B", margin: 0, lineHeight: 1.55 }}>SEO changes constantly. Found something wrong? Tell us — we update articles and document what changed publicly.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* BOTTOM CTA ROW */}
+        <div style={{
+          textAlign: "center",
+          marginTop: "2.5rem",
+          paddingTop: "2rem",
+          borderTop: "1px solid #E2E8F0"
+        }}>
+          <p style={{ fontSize: "14px", color: "#64748B", margin: "0 0 1rem" }}>Want to understand how content is created and claims are verified?</p>
+          <div style={{ display: "flex", gap: "10px", justifyContent: "center", flexWrap: "wrap" }}>
+            <Link to="/about" style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "6px",
+              fontSize: "14px",
+              color: "#2563EB",
+              border: "1px solid #BFDBFE",
+              borderRadius: "8px",
+              padding: "8px 18px",
+              textDecoration: "none",
+              background: "white"
+            }}>Our methodology →</Link>
+            <Link to="/about" style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "6px",
+              fontSize: "14px",
+              color: "#2563EB",
+              border: "1px solid #BFDBFE",
+              borderRadius: "8px",
+              padding: "8px 18px",
+              textDecoration: "none",
+              background: "white"
+            }}>Meet the founder →</Link>
+            <Link to="/about" style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "6px",
+              fontSize: "14px",
+              color: "#2563EB",
+              border: "1px solid #BFDBFE",
+              borderRadius: "8px",
+              padding: "8px 18px",
+              textDecoration: "none",
+              background: "white"
+            }}>Why free? →</Link>
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -400,7 +705,7 @@ export function FinalCTA() {
             Stop being invisible to AI.
           </h2>
           <p className="mt-5 text-white/90 text-base sm:text-lg max-w-xl mx-auto">
-            Run your first audit in 8 seconds. Join 2.4M+ marketers winning the AI search era.
+            Run your first audit in 8 seconds. Join independent marketers winning the AI search era.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
             <Link to="/tools/ai-citation-audit" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-lg bg-white text-primary font-bold hover:scale-105 transition shadow-2xl">
@@ -415,6 +720,79 @@ export function FinalCTA() {
             <span className="flex items-center gap-1.5"><Clock className="size-4" /> 8 second average scan</span>
             <span className="flex items-center gap-1.5"><Layers className="size-4" /> 4 tools · 12 modules</span>
           </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function TrustStrip() {
+  return (
+    <section className="py-8">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center sm:text-left">
+        <div className="p-4 rounded-xl border border-border bg-surface/30 flex flex-col items-center sm:items-start">
+          <span className="text-2xl mb-2">👤</span>
+          <span className="font-display font-semibold text-sm">Real Founder</span>
+          <span className="text-xs text-muted-foreground mt-1">Built by Ketan Chandore — one real person, not an anonymous agency</span>
+        </div>
+        <div className="p-4 rounded-xl border border-border bg-surface/30 flex flex-col items-center sm:items-start">
+          <span className="text-2xl mb-2">🚫</span>
+          <span className="font-display font-semibold text-sm">No Ranking Promises</span>
+          <span className="text-xs text-muted-foreground mt-1">We never promise guaranteed rankings or secret Google formulas</span>
+        </div>
+        <div className="p-4 rounded-xl border border-border bg-surface/30 flex flex-col items-center sm:items-start">
+          <span className="text-2xl mb-2">🛠️</span>
+          <span className="font-display font-semibold text-sm">Tools Stay Free</span>
+          <span className="text-xs text-muted-foreground mt-1">Core diagnostic tools are free — because expensive tools were the problem</span>
+        </div>
+        <div className="p-4 rounded-xl border border-border bg-surface/30 flex flex-col items-center sm:items-start">
+          <span className="text-2xl mb-2">🔍</span>
+          <span className="font-display font-semibold text-sm">Evidence-Based</span>
+          <span className="text-xs text-muted-foreground mt-1">Official documentation + real experiments. Hypotheses clearly labeled.</span>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function WhyTrustUs() {
+  return (
+    <section className="py-16">
+      <div className="text-center mb-12">
+        <div className="text-xs uppercase tracking-[0.2em] text-primary font-mono mb-2">TRANSPARENCY</div>
+        <h2 className="font-display text-3xl sm:text-4xl font-bold">Why Trust <span className="text-primary">SEO</span>Academys?</h2>
+        <p className="mt-3 text-muted-foreground">Fair question. Here's the transparent answer.</p>
+      </div>
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto">
+        <div className="card-3d p-6">
+          <div className="text-3xl mb-3">👤</div>
+          <h3 className="font-bold mb-2">There's a real person behind this.</h3>
+          <p className="text-sm text-muted-foreground mb-4">SEOAcademys is built by Ketan Chandore — a CS student from Khargone, MP. No anonymous team, no fake profiles.</p>
+          <Link to="/about/ketan-chandore" className="text-xs font-semibold text-primary hover:underline">Meet Ketan →</Link>
+        </div>
+        <div className="card-3d p-6">
+          <div className="text-3xl mb-3">🔬</div>
+          <h3 className="font-bold mb-2">Evidence over hype.</h3>
+          <p className="text-sm text-muted-foreground mb-4">We separate confirmed information from hypotheses. No secret formulas, no guaranteed ranking promises.</p>
+          <Link to="/methodology" className="text-xs font-semibold text-primary hover:underline">Our Methodology →</Link>
+        </div>
+        <div className="card-3d p-6">
+          <div className="text-3xl mb-3">🛠️</div>
+          <h3 className="font-bold mb-2">Free tools — with a real reason.</h3>
+          <p className="text-sm text-muted-foreground mb-4">Expensive tools were the problem that created this platform. Not a funnel, data is not sold.</p>
+          <Link to="/why-free" className="text-xs font-semibold text-primary hover:underline">Why Free? →</Link>
+        </div>
+        <div className="card-3d p-6">
+          <div className="text-3xl mb-3">✏️</div>
+          <h3 className="font-bold mb-2">Mistakes are corrected publicly.</h3>
+          <p className="text-sm text-muted-foreground mb-4">SEO changes. When we get things wrong — correct us. We document updates transparently.</p>
+          <Link to="/corrections" className="text-xs font-semibold text-primary hover:underline">Corrections Policy →</Link>
+        </div>
+        <div className="card-3d p-6">
+          <div className="text-3xl mb-3">💰</div>
+          <h3 className="font-bold mb-2">Clear about how money works.</h3>
+          <p className="text-sm text-muted-foreground mb-4">Currently self-funded. Affiliates will be clearly disclosed and won't affect recommendations.</p>
+          <Link to="/monetization" className="text-xs font-semibold text-primary hover:underline">Monetization →</Link>
         </div>
       </div>
     </section>

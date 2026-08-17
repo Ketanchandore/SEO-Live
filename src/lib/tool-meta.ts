@@ -525,6 +525,39 @@ export function toolJsonLd(meta: ToolMeta): object[] {
     },
     {
       "@context": "https://schema.org",
+      "@type": "WebPage",
+      url: url,
+      name: meta.title,
+      description: meta.description,
+      about: [
+        { "@type": "Thing", name: "Search Engine Optimization" },
+        { "@type": "Thing", name: meta.name },
+        { "@type": "Thing", name: "Technical SEO" }
+      ],
+      mentions: [
+        { "@type": "Thing", name: "Google Algorithm" },
+        { "@type": "Thing", name: "Web Performance" },
+        { "@type": "Thing", name: "Artificial Intelligence" }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "VideoObject",
+      name: `How to use ${meta.name} by SEOAcademys`,
+      description: `A complete video guide on how to use the free ${meta.name} tool to optimize your website and rank higher on Google.`,
+      thumbnailUrl: `${SITE}/og-image.jpg`,
+      uploadDate: "2026-06-12T08:00:00+08:00",
+      duration: "PT2M30S",
+      contentUrl: `https://www.youtube.com/watch?v=dQw4w9WgXcQ`,
+      embedUrl: `https://www.youtube.com/embed/dQw4w9WgXcQ`,
+      publisher: {
+        "@type": "Organization",
+        name: "SEOAcademys",
+        logo: { "@type": "ImageObject", url: `${SITE}/logo.png` }
+      }
+    },
+    {
+      "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Home", item: SITE },

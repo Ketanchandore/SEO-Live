@@ -1,5 +1,5 @@
 import { Link, Outlet, useLocation } from "@tanstack/react-router";
-import { Home, Search, Code2, FileText, BarChart3, Github, LayoutDashboard, LogIn, Sparkles } from "lucide-react";
+import { Home, Search, Code2, FileText, BarChart3, Github, LayoutDashboard, LogIn, Sparkles, ArrowRight } from "lucide-react";
 import { useState } from "react";
 import { useSession } from "@/hooks/use-session";
 import { CookieConsent } from "@/components/CookieConsent";
@@ -53,11 +53,12 @@ export function Layout() {
             <Link to="/contact" className="px-3 py-2 hover:text-primary transition">Contact</Link>
           </nav>
           <div className="flex items-center gap-2">
-            <Link
-              to="/learning"
-              className="hidden lg:inline-flex items-center gap-2 text-sm px-3 py-1.5 rounded-md border border-border hover:border-primary hover:text-primary transition"
+            <Link 
+              to="/learn" 
+              className="hidden lg:flex items-center gap-2 border border-primary/20 bg-primary/5 hover:bg-primary/10 text-primary font-medium py-2 px-4 rounded-lg transition-all"
             >
-              <FileText className="size-4" /> Learning
+              <FileText className="size-4" />
+              Learning
             </Link>
             {user ? (
               <Link
@@ -90,7 +91,7 @@ export function Layout() {
               <Sparkles className="size-4 text-primary" />
               <span><span className="text-primary">SEO</span>Academys</span>
             </Link>
-            <p className="text-xs text-muted-foreground mt-3 leading-relaxed">Free SEO + GEO toolkit trusted by 2.4M+ marketers. 37 real-time tools. No signup.</p>
+            <p className="text-xs text-muted-foreground mt-3 leading-relaxed">Independent SEO + GEO toolkit. 37 real-time tools. No signup.</p>
           </div>
           <div>
             <h4 className="font-display font-semibold mb-3">SEO Audit</h4>
@@ -120,24 +121,30 @@ export function Layout() {
               <li><Link to="/tools/schema-generator" className="hover:text-primary">Schema & llms.txt</Link></li>
               <li><Link to="/tools/robots-txt" className="hover:text-primary">Robots.txt Builder</Link></li>
               <li><Link to="/tools/geo-tracker" className="hover:text-primary">GEO Market Intel</Link></li>
+              <li><Link to="/tools/methodology" className="hover:text-primary">Tools Methodology</Link></li>
             </ul>
           </div>
           <div>
-            <h4 className="font-display font-semibold mb-3">Company</h4>
+            <h4 className="font-display font-semibold mb-3">About SEOAcademys</h4>
             <ul className="space-y-2 text-muted-foreground">
-              <li><Link to="/blog" className="hover:text-primary">Blog</Link></li>
-              <li><Link to="/how-it-works" className="hover:text-primary">How It Works</Link></li>
-              <li><Link to="/changelog" className="hover:text-primary">Changelog</Link></li>
-              <li><Link to="/api-docs" className="hover:text-primary">API</Link></li>
               <li><Link to="/about" className="hover:text-primary">About</Link></li>
+              <li><Link to="/about/ketan-chandore" className="hover:text-primary">Founder</Link></li>
+              <li><Link to="/why-free" className="hover:text-primary">Why Free?</Link></li>
+              <li><Link to="/methodology" className="hover:text-primary">Methodology</Link></li>
+              <li><Link to="/editorial-policy" className="hover:text-primary">Editorial Policy</Link></li>
+              <li><Link to="/tools/methodology" className="hover:text-primary">Tools How-To</Link></li>
+              <li><Link to="/monetization" className="hover:text-primary">Monetization</Link></li>
+              <li><Link to="/corrections" className="hover:text-primary">Corrections Policy</Link></li>
+              <li><Link to="/sources" className="hover:text-primary">Sources Policy</Link></li>
+              <li><Link to="/changelog" className="hover:text-primary">Changelog</Link></li>
               <li><Link to="/contact" className="hover:text-primary">Contact</Link></li>
-              <li><Link to="/privacy" className="hover:text-primary">Privacy</Link></li>
-              <li><Link to="/terms" className="hover:text-primary">Terms</Link></li>
+              <li><Link to="/privacy" className="hover:text-primary">Privacy Policy</Link></li>
+              <li><Link to="/terms" className="hover:text-primary">Terms of Use</Link></li>
             </ul>
           </div>
         </div>
         <div className="text-center text-xs text-muted-foreground py-4 border-t border-border px-4">
-          © {new Date().getFullYear()} SEOAcademys · Free SEO + GEO Tools · Last Updated: June 2026
+          © {new Date().getFullYear()} SEOAcademys · Free SEO + GEO Tools · Last Updated: August 2026
         </div>
       </footer>
 

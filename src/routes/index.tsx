@@ -1,10 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageContainer } from "@/components/Layout";
 import { Hero3D } from "@/components/Hero3D";
-import { ArrowRight, Search, Code2, FileText, BarChart3, Database, FileCode, Star, Zap, ShieldCheck, TrendingUp } from "lucide-react";
+import { ArrowRight, Search, Code2, FileText, BarChart3, Database, FileCode, Star, Zap, ShieldCheck, TrendingUp, Sparkles } from "lucide-react";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { LiveTicker, HowItWorks, FeatureShowcase, ComparisonTable, TestimonialsGrid, FAQSection, FinalCTA } from "@/components/HomeSections";
+import { LiveTicker, HowItWorks, FeatureShowcase, ComparisonTable, TestimonialsGrid, FAQSection, FinalCTA, TrustStrip, WhyTrustUs } from "@/components/HomeSections";
 
 const HOME_TITLE = "Free SEO Tools — AI Audit, Rank Tracker, Schema Generator | SEOAcademys";
 const HOME_DESC = "37 free SEO tools used by 2.4M+ marketers. AI Citation Audit, Rank Tracker, Schema Generator, Site Audit — no signup. Rank #1 in Google & AI Search.";
@@ -37,30 +37,49 @@ export const Route = createFileRoute("/")({
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "Organization",
-          name: "SEOAcademys",
-          url: "https://seoacademys.com",
-          logo: "https://seoacademys.com/logo.webp",
-          description: "Free SEO tools platform used by 2.4M+ marketers. Provides AI Citation Audit, Rank Tracker, Schema Generator, and 34 more free SEO tools.",
-          foundingDate: "2024",
-          numberOfEmployees: "1-10",
-          sameAs: [],
-          knowsAbout: ["SEO", "Generative Engine Optimization", "AI Search Optimization", "Schema Markup", "llms.txt", "Rank Tracking", "Technical SEO"],
-          hasOfferCatalog: { "@type": "OfferCatalog", name: "Free SEO Tools", numberOfItems: "37" },
-        }),
-      },
-      {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "WebSite",
-          name: "SEOAcademys",
-          url: "https://seoacademys.com",
-          potentialAction: {
-            "@type": "SearchAction",
-            target: "https://seoacademys.com/tools?q={search_term_string}",
-            "query-input": "required name=search_term_string",
-          },
+          "@graph": [
+            {
+              "@type": "WebSite",
+              "@id": "https://seoacademys.com/#website",
+              "url": "https://seoacademys.com",
+              "name": "SEOAcademys",
+              "description": "Independent SEO, GEO and AEO learning platform — free tools, honest guides, real experiments.",
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": {
+                  "@type": "EntryPoint",
+                  "urlTemplate": "https://seoacademys.com/search?q={search_term_string}"
+                },
+                "query-input": "required name=search_term_string"
+              }
+            },
+            {
+              "@type": "Organization",
+              "@id": "https://seoacademys.com/#organization",
+              "name": "SEOAcademys",
+              "url": "https://seoacademys.com",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://seoacademys.com/images/logo.png"
+              },
+              "founder": {
+                "@type": "Person",
+                "name": "Ketan Chandore",
+                "url": "https://seoacademys.com/about/ketan-chandore"
+              },
+              "foundingDate": "2024",
+              "knowsAbout": ["SEO", "GEO", "AEO", "Technical SEO", "E-E-A-T"],
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "email": "ketanchandore114@gmail.com",
+                "contactType": "customer service"
+              },
+              "sameAs": [
+                "https://www.linkedin.com/in/ketan-chandore-51a533254",
+                "https://x.com/pinepl_techai"
+              ]
+            }
+          ]
         }),
       },
     ],
@@ -68,31 +87,7 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
-function useCount(target: number) {
-  const [n, setN] = useState(0);
-  useEffect(() => {
-    const start = Date.now();
-    const dur = 1800;
-    let raf = 0;
-    const tick = () => {
-      const t = Math.min(1, (Date.now() - start) / dur);
-      setN(Math.floor(target * (1 - Math.pow(1 - t, 3))));
-      if (t < 1) raf = requestAnimationFrame(tick);
-    };
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-  }, [target]);
-  return n;
-}
-
-function fmt(n: number, suffix = "") {
-  if (suffix === "M+") return `${(n / 1_000_000).toFixed(1)}M+`;
-  if (suffix === "K+") return `${(n / 1000).toFixed(0)}K+`;
-  return `${n.toLocaleString()}${suffix}`;
-}
-
-function StatCard({ value, label, suffix = "", icon: Icon }: { value: number; label: string; suffix?: string; icon: React.ElementType }) {
-  const n = useCount(value);
+function StatCard({ value, label, suffix = "", icon: Icon }: { value: number | string; label: string; suffix?: string; icon: React.ElementType }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -103,7 +98,9 @@ function StatCard({ value, label, suffix = "", icon: Icon }: { value: number; la
     >
       <div className="absolute -top-12 -right-12 size-32 rounded-full opacity-20 blur-2xl group-hover:opacity-40 transition" style={{ background: "var(--primary)" }} />
       <Icon className="size-5 text-primary mb-3" />
-      <div className="font-display text-3xl sm:text-4xl font-bold text-foreground">{fmt(n, suffix)}</div>
+      <div className="font-display text-3xl sm:text-4xl font-bold text-foreground">
+        {value}{suffix}
+      </div>
       <div className="mt-2 text-sm text-muted-foreground">{label}</div>
     </motion.div>
   );
@@ -132,7 +129,7 @@ function Home() {
           >
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-primary/30 bg-primary/5 text-[11px] sm:text-xs text-primary mb-4 sm:mb-5 font-mono max-w-full">
               <span className="size-1.5 rounded-full bg-primary animate-pulse shrink-0" />
-              <span className="truncate">LIVE · 2,438,902 scans · 187 today</span>
+              <span className="truncate">LIVE · Diagnostic Engine Online</span>
             </div>
             <h1 className="font-display text-[2rem] leading-[1.12] sm:text-5xl lg:text-6xl font-bold tracking-tight">
               Free SEO tools to rank #1 in{" "}
@@ -182,9 +179,9 @@ function Home() {
                 <span className="ml-1 text-foreground font-medium">4.9</span>
               </div>
               <span className="hidden sm:inline">·</span>
-              <span>Trusted by <b className="text-foreground">2.4M+ marketers</b></span>
+              <span>Independent Platform</span>
               <span className="hidden sm:inline">·</span>
-              <span>No signup</span>
+              <span>100% Free Tools</span>
             </div>
           </motion.div>
 
@@ -200,14 +197,76 @@ function Home() {
           </motion.div>
         </section>
 
+        {/* START LEARNING - ADDED AS PER REQUEST */}
+        <section className="py-16 md:py-24 bg-surface-2 border-y border-border">
+          <div className="text-center mb-12">
+            <h2 className="font-display text-3xl sm:text-4xl font-bold mb-4">Free SEO Learning Hub</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              27 modules. 200+ chapters. Evidence-based. Start anywhere.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto px-4 mb-10">
+            {/* Module 1 */}
+            <Link to="/learn/$moduleSlug" params={{ moduleSlug: "seo-fundamentals" }} className="group card-3d p-6 bg-surface hover:bg-primary/5 transition-all border border-border flex flex-col h-full rounded-2xl relative overflow-hidden">
+              <div className="absolute top-4 right-4 text-xs font-bold px-2 py-1 bg-primary/10 text-primary rounded-full">Start Here</div>
+              <div className="mb-4 size-12 bg-blue-100 dark:bg-blue-900/30 text-blue-600 rounded-xl flex items-center justify-center">
+                <FileText className="size-6" />
+              </div>
+              <h3 className="font-display font-bold text-xl mb-2 group-hover:text-primary transition-colors">Module 1: SEO Fundamentals</h3>
+              <p className="text-sm text-muted-foreground flex-1">Complete beginner guide to what SEO is, how Google works, and realistic timelines.</p>
+              <div className="mt-6 flex items-center gap-2 text-sm font-semibold text-primary">
+                Read Module <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </Link>
+
+            {/* Module 10 */}
+            <Link to="/learn/$moduleSlug" params={{ moduleSlug: "geo-guide" }} className="group card-3d p-6 bg-surface hover:bg-primary/5 transition-all border border-border flex flex-col h-full rounded-2xl relative overflow-hidden">
+              <div className="absolute top-4 right-4 text-xs font-bold px-2 py-1 bg-primary/10 text-primary rounded-full">AI Search</div>
+              <div className="mb-4 size-12 bg-purple-100 dark:bg-purple-900/30 text-purple-600 rounded-xl flex items-center justify-center">
+                <Sparkles className="size-6" />
+              </div>
+              <h3 className="font-display font-bold text-xl mb-2 group-hover:text-primary transition-colors">Module 10: GEO Guide</h3>
+              <p className="text-sm text-muted-foreground flex-1">Advanced optimization for LLMs (ChatGPT, Gemini, Perplexity) if AI search is your goal.</p>
+              <div className="mt-6 flex items-center gap-2 text-sm font-semibold text-primary">
+                Read Module <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </Link>
+
+            {/* Module 23 */}
+            <Link to="/learn/$moduleSlug" params={{ moduleSlug: "seo-troubleshooting" }} className="group card-3d p-6 bg-surface hover:bg-primary/5 transition-all border border-border flex flex-col h-full rounded-2xl relative overflow-hidden">
+              <div className="absolute top-4 right-4 text-xs font-bold px-2 py-1 bg-primary/10 text-primary rounded-full">Fix Issues</div>
+              <div className="mb-4 size-12 bg-orange-100 dark:bg-orange-900/30 text-orange-600 rounded-xl flex items-center justify-center">
+                <ShieldCheck className="size-6" />
+              </div>
+              <h3 className="font-display font-bold text-xl mb-2 group-hover:text-primary transition-colors">Module 23: Troubleshooting</h3>
+              <p className="text-sm text-muted-foreground flex-1">Diagnosing and fixing traffic drops, indexing issues, and technical errors.</p>
+              <div className="mt-6 flex items-center gap-2 text-sm font-semibold text-primary">
+                Read Module <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </Link>
+          </div>
+          
+          <div className="text-center">
+            <Link 
+              to="/learn" 
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground font-semibold hover:opacity-90 transition-opacity"
+            >
+              See All 27 Modules <ArrowRight className="size-4" />
+            </Link>
+          </div>
+        </section>
+
+        <TrustStrip />
+        <WhyTrustUs />
 
         {/* STATS */}
         <section className="py-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-            <StatCard value={2438902} suffix="M+" label="AI Audits Run" icon={Zap} />
-            <StatCard value={94} suffix="%" label="Citation Win Rate" icon={TrendingUp} />
-            <StatCard value={187000} suffix="K+" label="Active Marketers" icon={ShieldCheck} />
-            <StatCard value={47} suffix="B$" label="GEO Market by 2030" icon={Star} />
+            <StatCard value="37" label="Diagnostic Tools" icon={Zap} />
+            <StatCard value="100" suffix="%" label="Free to Use" icon={TrendingUp} />
+            <StatCard value="0" label="Ads or Paywalls" icon={ShieldCheck} />
+            <StatCard value="24/7" label="Uptime" icon={Star} />
           </div>
         </section>
 

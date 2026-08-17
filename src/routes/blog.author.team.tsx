@@ -4,7 +4,7 @@ import { BLOG_POSTS } from "@/lib/blog-posts";
 
 const TITLE = "SEOAcademys Editorial Team — SEO & GEO Research Authors";
 const DESC =
-  "The SEOAcademys editorial team produces guides and research based on analysis of 2.4M+ website audits. Our content is reviewed by practicing SEO professionals.";
+  "The SEOAcademys editorial team produces guides and research based on extensive technical SEO analysis. Our content is reviewed by practicing professionals.";
 
 export const Route = createFileRoute("/blog/author/team")({
   head: () => ({
@@ -54,19 +54,18 @@ function AuthorPage() {
     <PageContainer>
       <article className="max-w-3xl">
         <h1 className="font-display text-3xl sm:text-4xl font-bold tracking-tight">
-          SEOAcademys Editorial Team — SEO Research Based on 2.4M+ Real Audits
+          SEOAcademys Editorial Team — SEO Research Based on Data & Real Audits
         </h1>
 
         <div className="mt-6 space-y-4 text-foreground/90 leading-relaxed">
           <p>
-            The SEOAcademys Editorial Team produces educational SEO and GEO content grounded in real data from our 37-tool
+            The SEOAcademys Editorial Team produces educational SEO and GEO content grounded in real data from our
             platform. Every statistic in our articles comes from our own audit database or from cited academic and industry
             research — never fabricated.
           </p>
           <p>
-            Our team has analysed over 2.4 million website audits across 80+ countries. The patterns we report — such as
-            &ldquo;71% of pages have a missing or too-short meta description&rdquo; and &ldquo;91% of websites have no llms.txt
-            file&rdquo; — come directly from that dataset.
+            Our team has analysed thousands of website audits across the globe. The patterns we report — such as
+            missing meta descriptions or the lack of llms.txt files — come directly from that dataset.
           </p>
           <p>
             All articles are reviewed before publication by practicing SEO professionals, and updated whenever Google releases
@@ -93,27 +92,22 @@ function AuthorPage() {
         </section>
 
         <section className="mt-10">
-          <h2 className="font-display text-2xl font-bold tracking-tight">Key Contributors & Reviewers</h2>
-          <div className="mt-6 grid sm:grid-cols-2 gap-6">
-            <div className="rounded-xl border border-border bg-surface p-5">
-              <h3 className="font-semibold text-lg">Sarah Jenkins</h3>
-              <div className="text-sm text-primary mb-2">Lead Technical SEO</div>
+          <h2 className="font-display text-2xl font-bold tracking-tight">Lead Editor</h2>
+          <div className="mt-6">
+            <div className="rounded-xl border border-border bg-surface p-5 max-w-sm">
+              <h3 className="font-semibold text-lg">Ketan Chandore</h3>
+              <div className="text-sm text-primary mb-2">Founder & Lead Researcher</div>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Sarah has 8+ years of experience auditing enterprise sites for Fortune 500 companies. She specializes in Core Web Vitals, schema markup architecture, and log file analysis.
+                Ketan builds independent web projects and researches SEO, GEO, and AEO. He created SEOAcademys to make SEO education and diagnostic tools accessible.
               </p>
-              <a href="https://www.linkedin.com/" className="inline-flex items-center gap-1 text-sm mt-3 text-foreground hover:text-primary transition" target="_blank" rel="noopener noreferrer">
-                LinkedIn Profile
-              </a>
-            </div>
-            <div className="rounded-xl border border-border bg-surface p-5">
-              <h3 className="font-semibold text-lg">Michael Chang</h3>
-              <div className="text-sm text-primary mb-2">GEO & AI Search Specialist</div>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                Former search engineer focusing on Generative Engine Optimization. Michael analyzes LLM citation patterns and helps brands rank in ChatGPT, Perplexity, and Google AI Overviews.
-              </p>
-              <a href="https://www.linkedin.com/" className="inline-flex items-center gap-1 text-sm mt-3 text-foreground hover:text-primary transition" target="_blank" rel="noopener noreferrer">
-                LinkedIn Profile
-              </a>
+              <div className="flex gap-4 mt-4">
+                <Link to="/about/ketan-chandore" className="text-sm font-semibold text-primary hover:underline">
+                  Full Profile →
+                </Link>
+                <a href="https://www.linkedin.com/in/ketan-chandore-51a533254" className="text-sm text-foreground hover:text-primary transition" target="_blank" rel="noopener noreferrer">
+                  LinkedIn
+                </a>
+              </div>
             </div>
           </div>
         </section>
